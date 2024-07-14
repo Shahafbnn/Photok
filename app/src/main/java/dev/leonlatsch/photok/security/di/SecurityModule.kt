@@ -18,19 +18,27 @@ package dev.leonlatsch.photok.security.di
 
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.leonlatsch.photok.security.EncryptionManager
 import dev.leonlatsch.photok.security.LegacyEncryptionManagerImpl
+import java.security.KeyStore
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface SecurityModule {
+abstract class SecurityModule {
 
     @Singleton
     @Binds
-    fun bindLegacyEncryptionManager(
+    abstract fun bindLegacyEncryptionManager(
         impl: LegacyEncryptionManagerImpl
     ): EncryptionManager
+
+    @Provides
+    @Singleton
+    fun provideKeystore(): KeyStore = KeyStore.getInstance("AndroidKeyStore").apply {
+        load(null)
+    }
 }
