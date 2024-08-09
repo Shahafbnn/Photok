@@ -8,7 +8,7 @@ However, there are a few guidelines you should respect.
 1. If you want to contribute, please ensure, that I am able to contact you in any way.
 3. USE the PR template.
 4. If you haven't contributed already, you may add an entry in `contributors.json` in the android assets, to be added to the "Credits" section in the app.
-5. An of course, please read the code of conduct and stick to it.
+5. And of course, please read the code of conduct and stick to it.
 
 ## New Features
 
